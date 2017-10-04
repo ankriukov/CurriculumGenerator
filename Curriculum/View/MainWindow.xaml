@@ -18,32 +18,42 @@
 
                 <TabItem Background="#FFECECEC" Width="60">
                     <TabItem.Header>
-                        <Image Source="pack://siteoforigin:,,,/Resources/Calendar.png"/>
+                        <StackPanel>
+                            <Image Source="../Resources/Calendar.png" Height="auto" Width="auto"/>
+                        </StackPanel>
                     </TabItem.Header>
                 </TabItem>
 
                 <TabItem Background="#FFECECEC" Width="60">
                     <TabItem.Header>
-                        <Image Source="pack://siteoforigin:,,,/Resources/Lessons.png" Height="30" Width="30"/>
+                    
+                            <Image Source="../Resources/Lessons.png" Height="auto" Width="auto"/>
+                    
                     </TabItem.Header>
                 </TabItem>
 
                 <TabItem Background="#FFECECEC" Width="60">
                     <TabItem.Header>
-                        <Image Source="pack://application:,,,/Resources//Group.png" Height="30" Width="30"/>
+                        <StackPanel>
+                            <Image Source="../Resources/Group.png" Height="auto" Width="auto"/>
+                        </StackPanel>
                     </TabItem.Header>
                     <TextBlock Text="Content"/>
                 </TabItem>
 
                 <TabItem Background="#FFECECEC" Width="60">
                     <TabItem.Header>
-                        <Image Source="pack://application:,,,/Resources//Identity.png" Height="30" Width="30"/>
+                        <StackPanel>
+                            <Image Source="../Resources/Identity.png" Height="auto" Width="auto"/>
+                        </StackPanel>
                     </TabItem.Header>
                 </TabItem>
 
                 <TabItem Background="#FFECECEC" Width="60">
                     <TabItem.Header>
-                        <Image Source="pack://application:,,,/Resources//Room.png" Height="30" Width="30"/>
+                        <StackPanel>
+                            <Image Source="../Resources/Room.png" Height="auto" Width="auto"/>
+                        </StackPanel>
                     </TabItem.Header>
                 </TabItem>
             </TabControl>
