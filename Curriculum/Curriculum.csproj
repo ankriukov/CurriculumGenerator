@@ -120,7 +120,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Infrastructure\ResourceData.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceData.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -143,10 +143,10 @@
     <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Calendar press.png" />
+    <Resource Include="Resources\Calendar press.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Calendar.png" />
+    <Resource Include="Resources\Calendar.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Group press.png" />
