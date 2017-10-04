@@ -2,10 +2,53 @@
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:properties="clr-namespace:Curriculum.Properties"
                       Title="MainWindow"
                       Height="600"
                       Width="800">
     <Grid>
-       
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="12*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <TabControl Grid.ColumnSpan="2" TabStripPlacement="Left">
+
+                <TabItem Background="#FFECECEC" Width="60">
+                    <TabItem.Header>
+                        <Image Source="pack://siteoforigin:,,,/Resources/Calendar.png"/>
+                    </TabItem.Header>
+                </TabItem>
+
+                <TabItem Background="#FFECECEC" Width="60">
+                    <TabItem.Header>
+                        <Image Source="pack://siteoforigin:,,,/Resources/Lessons.png" Height="30" Width="30"/>
+                    </TabItem.Header>
+                </TabItem>
+
+                <TabItem Background="#FFECECEC" Width="60">
+                    <TabItem.Header>
+                        <Image Source="pack://application:,,,/Resources//Group.png" Height="30" Width="30"/>
+                    </TabItem.Header>
+                    <TextBlock Text="Content"/>
+                </TabItem>
+
+                <TabItem Background="#FFECECEC" Width="60">
+                    <TabItem.Header>
+                        <Image Source="pack://application:,,,/Resources//Identity.png" Height="30" Width="30"/>
+                    </TabItem.Header>
+                </TabItem>
+
+                <TabItem Background="#FFECECEC" Width="60">
+                    <TabItem.Header>
+                        <Image Source="pack://application:,,,/Resources//Room.png" Height="30" Width="30"/>
+                    </TabItem.Header>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+
+
     </Grid>
 </Controls:MetroWindow>
