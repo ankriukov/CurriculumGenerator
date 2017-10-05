@@ -3,50 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Curriculum.Infrastructure
 {
     class RelayCommand : ICommand
     {
-        readonly Action<object> _execute;
-        readonly Predicate<object> _canExecute;
+        private Action<object> execute;
+        private Func<object, bool> canExecute;
 
-        public RelayCommand(Action<object> execute)
-            : this(execute, null)
+        public event EventHandler CanExecuteChanged
         {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
-            if (execute == null)
-            {
-                throw new ArgumentNullException("execute");
-            }
-
-            _execute = execute;
-            _canExecute = canExecute;
+            this.execute = execute;
+            this.canExecute = canExecute;
         }
 
         public bool CanExecute(object parameter)
         {
-            return _canExecute == null ? true : _canExecute.Invoke(parameter);
-        }
-
-        public event EventHandler CanExecuteChanged
-        {
-            add
-            {
-                CommandManager.RequerySuggested += value;
-            }
-            remove
-            {
-                CommandManager.RequerySuggested -= value;
-            }
+            return this.canExecute == null || this.canExecute(parameter);
         }
 
         public void Execute(object parameter)
         {
-            _execute.Invoke(parameter);
+            this.execute(parameter);
         }
     }
 }
