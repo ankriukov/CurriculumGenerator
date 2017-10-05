@@ -7,15 +7,54 @@
                       Height="600"
                       Width="800">
     <Grid>
+        <!--<Control.Resources>
+            <Style TargetType="{x:Type TabItem}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TabItem}">
+                            <Border>
+                                <Grid>
+                                    <Grid>
+                                        <Border x:Name="border" 
+                                            CornerRadius="3,3,0,0"
+                                            Background="WhiteSmoke"/>
+                                    </Grid>
+                                    <ContentPresenter ContentSource="Header"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                    <Setter TargetName="border"
+                                        Property="Background"
+                                        Value="LightGray" />
+                                </Trigger>
+                                <Trigger Property="IsSelected"
+                                     Value="True">
+                                    <Setter TargetName="border"
+                                        Property="Background"
+                                        Value="LightGray" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Control.Resources>-->
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="30*"/>
             <ColumnDefinition Width="12*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel>
-            <TabControl Grid.ColumnSpan="2" TabStripPlacement="Left">
 
+        <StackPanel Orientation="Vertical">
+            
+            <TabControl Grid.ColumnSpan="2" TabStripPlacement="Left">
+                
                 <TabItem Background="#FFECECEC" Width="60">
                     <TabItem.Header>
                         <StackPanel>
@@ -26,9 +65,9 @@
 
                 <TabItem Background="#FFECECEC" Width="60">
                     <TabItem.Header>
-                    
+                        <StackPanel>
                             <Image Source="../Resources/Lessons.png" Height="auto" Width="auto"/>
-                    
+                        </StackPanel>
                     </TabItem.Header>
                 </TabItem>
 

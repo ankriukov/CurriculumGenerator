@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Curriculum.ViewModel
 {
-    public class Command
+    public class Commands
     {
+        //private ICommand 
     }
 }
