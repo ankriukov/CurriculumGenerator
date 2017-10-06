@@ -7,42 +7,7 @@
                       Height="600"
                       Width="800">
     <Grid>
-        <!--<Control.Resources>
-            <Style TargetType="{x:Type TabItem}">
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type TabItem}">
-                            <Border>
-                                <Grid>
-                                    <Grid>
-                                        <Border x:Name="border" 
-                                            CornerRadius="3,3,0,0"
-                                            Background="WhiteSmoke"/>
-                                    </Grid>
-                                    <ContentPresenter ContentSource="Header"
-                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                                </Grid>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver"
-                                     Value="True">
-                                    <Setter TargetName="border"
-                                        Property="Background"
-                                        Value="LightGray" />
-                                </Trigger>
-                                <Trigger Property="IsSelected"
-                                     Value="True">
-                                    <Setter TargetName="border"
-                                        Property="Background"
-                                        Value="LightGray" />
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </Control.Resources>-->
+
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60"/>
@@ -50,48 +15,102 @@
             <ColumnDefinition Width="12*"/>
         </Grid.ColumnDefinitions>
 
+        <Border Background="#FFD6D6D6" Grid.Column="0"/>
 
-        <StackPanel Orientation="Vertical">
-            
-            <TabControl Grid.ColumnSpan="2" TabStripPlacement="Left">
-                
-                <TabItem Background="#FFECECEC" Width="60">
+        <StackPanel Orientation="Vertical" Margin="-2 0" Grid.ColumnSpan="2">
+            <TabControl TabStripPlacement="Left">
+
+                <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
-                            <Image Source="../Resources/Calendar.png" Height="auto" Width="auto"/>
+                            <Image Source="../Resources/Calendar.png" Style="{StaticResource ImageToolBar}"/>
+                        </StackPanel>
+                    </TabItem.Header>
+
+                    <TabItem.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <DatePicker Margin="10 5" FontSize="20" FontFamily="Gabriola"/>
+                            <ListBox Grid.Row="1" Grid.ColumnSpan="2"
+                                     ScrollViewer.VerticalScrollBarVisibility="Auto"  
+                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                                     ScrollViewer.CanContentScroll="True">
+
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel IsItemsHost="True"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Margin="5" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="4" Width="auto">
+                                            <Grid Margin="5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="40"/>
+                                                    <ColumnDefinition Width="100"/>
+                                                    <ColumnDefinition Width="70"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="150"/>
+                                                    <RowDefinition Height="70"/>
+                                                    <RowDefinition Height="70"/>
+                                                    <RowDefinition Height="70"/>
+                                                    <RowDefinition Height="70"/>
+                                                </Grid.RowDefinitions>
+
+                                                <TextBlock Grid.Row="1" Foreground="#FF151429" FontSize="13" FontWeight="Medium"><Run Text="dvs"/><Run Text=" "/><Run Text="scd"/></TextBlock>
+                                                <TextBlock Grid.Row="1" Grid.Column="1" Text="gt" TextAlignment="Right" FontSize="10" Foreground="#FF686868" FontStyle="Normal"/>
+                                                <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="e" FontSize="11" Foreground="#FF353535" FontWeight="Light"/>
+
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+
+                            </ListBox>
+
+                        </Grid>
+                    </TabItem.Content>
+                </TabItem>
+
+                <TabItem Width="60" Style="{StaticResource PressPoint}">
+                    <TabItem.Header>
+                        <StackPanel>
+                            <Image Source="../Resources/Lessons.png" Style="{StaticResource ImageToolBar}"/>
                         </StackPanel>
                     </TabItem.Header>
                 </TabItem>
 
-                <TabItem Background="#FFECECEC" Width="60">
+                <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
-                            <Image Source="../Resources/Lessons.png" Height="auto" Width="auto"/>
-                        </StackPanel>
-                    </TabItem.Header>
-                </TabItem>
-
-                <TabItem Background="#FFECECEC" Width="60">
-                    <TabItem.Header>
-                        <StackPanel>
-                            <Image Source="../Resources/Group.png" Height="auto" Width="auto"/>
+                            <Image Source="../Resources/Group.png" Style="{StaticResource ImageToolBar}"/>
                         </StackPanel>
                     </TabItem.Header>
                     <TextBlock Text="Content"/>
                 </TabItem>
 
-                <TabItem Background="#FFECECEC" Width="60">
+                <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
-                            <Image Source="../Resources/Identity.png" Height="auto" Width="auto"/>
+                            <Image Source="../Resources/Identity.png" Style="{StaticResource ImageToolBar}"/>
                         </StackPanel>
                     </TabItem.Header>
                 </TabItem>
 
-                <TabItem Background="#FFECECEC" Width="60">
+                <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
-                            <Image Source="../Resources/Room.png" Height="auto" Width="auto"/>
+                            <Image Source="../Resources/Room.png" Style="{StaticResource ImageToolBar}"/>
                         </StackPanel>
                     </TabItem.Header>
                 </TabItem>
