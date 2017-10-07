@@ -10,11 +10,12 @@ namespace Curriculum.ViewModel
 {
     public class MainViewModel 
     {
-        DBContext db = new DBContext();
+        
 
         public MainViewModel()
         {
-            var a = db.Groups;
+            DBContext db = new DBContext();
+            
         }
     }
 }
