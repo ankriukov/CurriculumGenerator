@@ -1,21 +1,78 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataDll
 {
-    public class Pair
+    public class Pair : INotifyPropertyChanged
     {
-        public Teacher Teacher_ { get; set; }
-        public Lesson Lesson_ { get; set; }
-        public Room Room_ { get; set; }
-        public List<Group> Groups { get; set; }
+        public int Id { get; set; }
+
         private int number;
-        public Pair(int n)
+        public int Number
         {
-            number = n;
+            get { return number; }
+            set
+            {
+                number = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int id_lessonTypeLesson;
+        public int Id_LessonTypeLesson
+        {
+            get { return id_lessonTypeLesson; }
+            set
+            {
+                id_lessonTypeLesson = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int id_room;
+        public int Id_Room
+        {
+            get { return id_room; }
+            set
+            {
+                id_room = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int id_teacher;
+        public int Id_Teacher
+        {
+            get { return id_teacher; }
+            set
+            {
+                id_teacher = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int id_group;
+        public int Id_Group
+        {
+            get { return id_group; }
+            set
+            {
+                id_group = value;
+                OnPropertyChanged();
+            }
+        }
+        
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
+    
 }

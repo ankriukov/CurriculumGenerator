@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using Curriculum.ViewModel;
 
 namespace Curriculum
 {
@@ -23,6 +24,7 @@ namespace Curriculum
     {
         public MainWindow()
         {
+            DataContext = new MainViewModel();
             InitializeComponent();
         }
     }
