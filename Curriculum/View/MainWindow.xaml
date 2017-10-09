@@ -276,7 +276,7 @@
 
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
-            <Controls:Flyout x:Name="MahAppFlyout" Header="Свернуть" 
+            <Controls:Flyout x:Name="MahAppFlyout" 
                              Position="Bottom" Height="500" Theme="Dark">
                 <WrapPanel Orientation="Horizontal">
                     <Expander Header="Предмет" Style="{StaticResource FlyoutsExpandersAdd}">

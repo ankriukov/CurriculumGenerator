@@ -10,7 +10,7 @@ namespace DataDll
 {
     public class DBMethods
     {
-        public static SQLiteConnection connection = new SQLiteConnection(@"Data Source=..\..\DBCurriculum;Version=3;");
+        public static SQLiteConnection connection = new SQLiteConnection(@"Data Source=..\..\Resources\DBCurriculum;Version=3;");
 
         public static List<Group> getGroups()
         {
