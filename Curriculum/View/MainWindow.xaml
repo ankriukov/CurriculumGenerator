@@ -5,21 +5,22 @@
                       xmlns:properties="clr-namespace:Curriculum.Properties"
                       Title="MainWindow"
                       Height="600"
-                      Width="800">
+                      Width="800"
+                      FontFamily="Buxton Sketch">
     <Grid>
 
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="30*"/>
-            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Border Background="#FFD6D6D6" Grid.Column="0"/>
 
         <StackPanel Orientation="Vertical" Margin="-2 0" Grid.ColumnSpan="2">
-            <TabControl TabStripPlacement="Left">
+            <TabControl TabStripPlacement="Left" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Controls:MetroWindow}, Path=Height}">
 
+                <!--Вкладка №1. Календарь-->
                 <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
@@ -42,7 +43,8 @@
                             <ListBox Grid.Row="1" Grid.ColumnSpan="2"
                                      ScrollViewer.VerticalScrollBarVisibility="Auto"  
                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                                     ScrollViewer.CanContentScroll="True">
+                                     ScrollViewer.CanContentScroll="True"
+                                     ItemsSource="{Binding gr, Mode=TwoWay}">
 
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -60,43 +62,159 @@
                                                     <ColumnDefinition Width="70"/>
                                                 </Grid.ColumnDefinitions>
                                                 <Grid.RowDefinitions>
-                                                    <RowDefinition Height="150"/>
-                                                    <RowDefinition Height="70"/>
-                                                    <RowDefinition Height="70"/>
-                                                    <RowDefinition Height="70"/>
-                                                    <RowDefinition Height="70"/>
+                                                    <RowDefinition Height="55"/>
+                                                    <RowDefinition Height="45"/>
+                                                    <RowDefinition Height="45"/>
+                                                    <RowDefinition Height="45"/>
+                                                    <RowDefinition Height="45"/>
                                                 </Grid.RowDefinitions>
 
-                                                <TextBlock Grid.Row="1" Foreground="#FF151429" FontSize="13" FontWeight="Medium"><Run Text="dvs"/><Run Text=" "/><Run Text="scd"/></TextBlock>
-                                                <TextBlock Grid.Row="1" Grid.Column="1" Text="gt" TextAlignment="Right" FontSize="10" Foreground="#FF686868" FontStyle="Normal"/>
-                                                <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="e" FontSize="11" Foreground="#FF353535" FontWeight="Light"/>
+
+                                                <TextBlock Grid.ColumnSpan="3" Text="{Binding groupa}"/>
+                                                <ListBox Grid.ColumnSpan="3" Grid.RowSpan="3" Grid.Row="1" ItemsSource="{Binding Path=pp}">
+                                                    <ListBox.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition/>
+                                                                    <ColumnDefinition/>
+                                                                    <ColumnDefinition/>
+                                                                </Grid.ColumnDefinitions>
+
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition/>
+                                                                    <RowDefinition/>
+                                                                    <RowDefinition/>
+                                                                </Grid.RowDefinitions>
+
+                                                                <TextBlock Grid.Column="0" Grid.RowSpan="3" Text="{Binding Path=Key}"/>
+                                                                <TextBlock Grid.Column="1" Grid.RowSpan="3" Text=" пара" Margin="0 0 15 0"/>
+                                                                <TextBlock Grid.Column="2" Grid.Row="0" Text="{Binding Path=Value.namePara}"/>
+                                                                <TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding Path=Value.nameTeacher}"/>
+                                                                <TextBlock Grid.Column="2" Grid.Row="2" Text="{Binding Path=Value.nameAuditory}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListBox.ItemTemplate>
+                                                </ListBox>
+                                                <!--<TextBlock Grid.Column="0" Grid.Row="1" Text="Para1"/>
+                                                <TextBlock Grid.Column="0" Grid.Row="2" Text="Para2"/>
+                                                <TextBlock Grid.Column="0" Grid.Row="3" Text="Para3"/>
+                                                <TextBlock Grid.Column="0" Grid.Row="4" Text="Para4"/>
+                                                <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding pp[1].namePara}"/>
+                                                <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Text="{Binding pp[1].namePara}"/>
+                                                <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Text="{Binding pp[1].namePara}"/>-->
 
                                             </Grid>
                                         </Border>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
-
                             </ListBox>
 
                         </Grid>
                     </TabItem.Content>
                 </TabItem>
 
+                <!--Вкладка №2. Предметы-->
                 <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
                             <Image Source="../Resources/Lessons.png" Style="{StaticResource ImageToolBar}"/>
                         </StackPanel>
                     </TabItem.Header>
+
+                    <TabItem.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Margin="10">
+                                <TextBlock Foreground="#FF303030" FontSize="42">
+                                    Список 
+                                    <LineBreak/>
+                                    предметов
+                                </TextBlock>
+
+                                <ListBox></ListBox>
+                            </StackPanel>
+
+                        </Grid>
+                    </TabItem.Content>
                 </TabItem>
 
+                <!--Вкладка №3. Группы-->
                 <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
                             <Image Source="../Resources/Group.png" Style="{StaticResource ImageToolBar}"/>
                         </StackPanel>
                     </TabItem.Header>
-                    <TextBlock Text="Content"/>
+
+                    <TabItem.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--Вкладка №3. Левая часть (Список групп)-->
+                            <StackPanel Margin="10">
+                                <TextBlock Foreground="#FF303030" FontSize="42">
+                                    Список 
+                                    <LineBreak/>
+                                    групп
+                                </TextBlock>
+
+                                <ListBox ItemsSource="{Binding Path=gr}"/>
+                            </StackPanel>
+
+                            <!--Вкладка №3. Правая часть-->
+                            <StackPanel Margin="10" Grid.Column="1" >
+                                <Expander Header="Изменить данные" Margin="10" Padding="10 15">
+                                    <Expander.Content>
+                                        <StackPanel>
+                                            <TextBlock Text="Номер группы"/>
+                                            <TextBox Text="number"/>
+
+                                            <TextBlock Text="Специальность" Margin="0 10 0 0"/>
+                                            <TextBox Text="spec"/>
+                                        </StackPanel>
+                                    </Expander.Content>
+                                </Expander>
+
+                                <WrapPanel>
+                                    <Calendar Margin="10"/>
+                                    <!--Список пар-->
+                                    <ListBox ItemsSource="{Binding Path=qq.pp}">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    
+                                                    <TextBlock Grid.Column="0" Grid.RowSpan="3" Text="{Binding Path=Key}"/>
+                                                    <TextBlock Grid.Column="1" Grid.RowSpan="3" Text=" пара" Margin="0 0 15 0"/>
+                                                    <TextBlock Grid.Column="2" Grid.Row="0" Text="{Binding Path=Value.namePara}"/>
+                                                    <TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding Path=Value.nameTeacher}"/>
+                                                    <TextBlock Grid.Column="2" Grid.Row="2" Text="{Binding Path=Value.nameAuditory}"/>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem.Content>
                 </TabItem>
 
                 <TabItem Width="60" Style="{StaticResource PressPoint}">
