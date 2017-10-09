@@ -12,7 +12,7 @@
                             <Grid>
                                 <Border x:Name="border" 
                                             CornerRadius="3,3,0,0"
-                                            Background="#FFD6D6D6"/>
+                                            Background="#FF70BCDC"/>
                             </Grid>
                             <ContentPresenter ContentSource="Header"
                                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -24,7 +24,7 @@
                                      Value="True">
                             <Setter TargetName="border"
                                         Property="Background"
-                                        Value="#FFC5C5C5" />
+                                        Value="#FF9BD7F0" />
                         </Trigger>
                         <Trigger Property="IsSelected"
                                      Value="True">
@@ -43,6 +43,13 @@
         <Setter Property="Height" Value="auto"/>
         <Setter Property="Width" Value="auto"/>
         
+    </Style>
+
+    <Style TargetType="{x:Type Expander}" x:Key="FlyoutsExpandersAdd">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Width" Value="170"/>
+        <Setter Property="FontStyle" Value="Oblique"/>
+        <Setter Property="FontSize" Value="16"/>
     </Style>
     
 </ResourceDictionary>
