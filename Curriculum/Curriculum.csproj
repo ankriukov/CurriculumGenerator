@@ -95,6 +95,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="DBresourse\Classes\Group.cs" />
+    <Compile Include="DBresourse\Classes\GroupLessonTypeLesson.cs" />
+    <Compile Include="DBresourse\Classes\Lesson.cs" />
+    <Compile Include="DBresourse\Classes\LessonTypeLesson.cs" />
+    <Compile Include="DBresourse\Classes\LessonTypeLessonTypeRoom.cs" />
+    <Compile Include="DBresourse\Classes\Pair.cs" />
+    <Compile Include="DBresourse\Classes\Room.cs" />
+    <Compile Include="DBresourse\Classes\RoomTypeRoom.cs" />
+    <Compile Include="DBresourse\Classes\Teacher.cs" />
+    <Compile Include="DBresourse\Classes\TeacherLesson.cs" />
+    <Compile Include="DBresourse\Classes\TypeLesson.cs" />
+    <Compile Include="DBresourse\Classes\WorkDay.cs" />
+    <Compile Include="DBresourse\Classes\WorkDayPairs.cs" />
+    <Compile Include="DBresourse\DBMethods.cs" />
     <Compile Include="Infrastructure\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -174,12 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Room.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataDll\DataDll.csproj">
-      <Project>{d043a693-e7b2-42a7-ae93-ab1d05d30530}</Project>
-      <Name>DataDll</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
