@@ -6,16 +6,22 @@
                       Title="MainWindow"
                       Height="600"
                       Width="800"
-                      FontFamily="Buxton Sketch">
+                      FontFamily="Buxton Sketch"
+                      
+                      BorderThickness="0" 
+                      GlowBrush="Black"
+                      ResizeMode="CanResizeWithGrip"
+
+                      WindowTransitionsEnabled="False"
+                      WindowStartupLocation="CenterScreen">
+
     <Grid>
-
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Border Background="#FFD6D6D6" Grid.Column="0"/>
+        <Border Background="#FF70BCDC" Grid.Column="0"/>
 
         <StackPanel Orientation="Vertical" Margin="-2 0" Grid.ColumnSpan="2">
             <TabControl TabStripPlacement="Left" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Controls:MetroWindow}, Path=Height}">
@@ -125,8 +131,9 @@
                     <TabItem.Content>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*" MinWidth="180"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="3*" MinWidth="180"/>
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Margin="10">
@@ -136,7 +143,12 @@
                                     предметов
                                 </TextBlock>
 
-                                <ListBox></ListBox>
+                                <ListBox/>
+
+                                <GridSplitter Grid.Column="1" Background="#FF41B1E1" ShowsPreview="False" Width="3"
+                                          HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+
+                                <ListBox/>
                             </StackPanel>
 
                         </Grid>
@@ -154,8 +166,9 @@
                     <TabItem.Content>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*" MinWidth="135"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="3*" MinWidth="215"/>
                             </Grid.ColumnDefinitions>
 
                             <!--Вкладка №3. Левая часть (Список групп)-->
@@ -169,16 +182,21 @@
                                 <ListBox ItemsSource="{Binding Path=gr}"/>
                             </StackPanel>
 
+                            <GridSplitter Grid.Column="1" Background="#FF41B1E1" ShowsPreview="False" Width="3"
+                                          HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+
                             <!--Вкладка №3. Правая часть-->
-                            <StackPanel Margin="10" Grid.Column="1" >
+                            <StackPanel Margin="10" Grid.Column="2" >
                                 <Expander Header="Изменить данные" Margin="10" Padding="10 15">
                                     <Expander.Content>
                                         <StackPanel>
                                             <TextBlock Text="Номер группы"/>
-                                            <TextBox Text="number"/>
+                                            <TextBox Controls:TextBoxHelper.Watermark="Номер группы"
+                                                     Controls:TextBoxHelper.ClearTextButton="True"/>
 
                                             <TextBlock Text="Специальность" Margin="0 10 0 0"/>
-                                            <TextBox Text="spec"/>
+                                            <TextBox Controls:TextBoxHelper.Watermark="Специальность"
+                                                     Controls:TextBoxHelper.ClearTextButton="True"/>
                                         </StackPanel>
                                     </Expander.Content>
                                 </Expander>
@@ -195,13 +213,13 @@
                                                         <ColumnDefinition/>
                                                         <ColumnDefinition/>
                                                     </Grid.ColumnDefinitions>
-                                                    
+
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition/>
                                                         <RowDefinition/>
                                                         <RowDefinition/>
                                                     </Grid.RowDefinitions>
-                                                    
+
                                                     <TextBlock Grid.Column="0" Grid.RowSpan="3" Text="{Binding Path=Key}"/>
                                                     <TextBlock Grid.Column="1" Grid.RowSpan="3" Text=" пара" Margin="0 0 15 0"/>
                                                     <TextBlock Grid.Column="2" Grid.Row="0" Text="{Binding Path=Value.namePara}"/>
@@ -217,6 +235,7 @@
                     </TabItem.Content>
                 </TabItem>
 
+                <!--Вкладка №4. Преподаватели-->
                 <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
@@ -225,16 +244,66 @@
                     </TabItem.Header>
                 </TabItem>
 
+                <!--Вкладка №5. Аудитории-->
                 <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
                             <Image Source="../Resources/Room.png" Style="{StaticResource ImageToolBar}"/>
                         </StackPanel>
                     </TabItem.Header>
+
+                    <TabItem.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" MinWidth="135"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="3*" MinWidth="215"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--Вкладка №3. Левая часть (Список групп)-->
+                            <StackPanel Margin="10">
+                                <TextBlock Foreground="#FF303030" FontSize="42">
+                                    Список 
+                                    <LineBreak/>
+                                    аудиторий
+                                </TextBlock>
+
+                                <ListBox ItemsSource="{Binding Path=gr}"/>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem.Content>
                 </TabItem>
             </TabControl>
         </StackPanel>
 
 
     </Grid>
+
+
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout x:Name="MahAppFlyout" Header="Свернуть" 
+                             Position="Bottom" Height="500" Theme="Dark">
+                <WrapPanel Orientation="Horizontal">
+                    <Expander Header="Предмет" Style="{StaticResource FlyoutsExpandersAdd}">
+                        <TextBox Controls:TextBoxHelper.Watermark="Название предмета" Margin="10"/>
+                        
+                    </Expander>
+                    <Expander Header="Группу" Style="{StaticResource FlyoutsExpandersAdd}"></Expander>
+                    <Expander Header="Преподавателя" Style="{StaticResource FlyoutsExpandersAdd}"></Expander>
+                    <Expander Header="Аудиторию" Style="{StaticResource FlyoutsExpandersAdd}"></Expander>
+                </WrapPanel>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <ToggleButton Content="Добавить"
+                          IsChecked="{Binding ElementName=MahAppFlyout, Path=IsOpen}" 
+                          Cursor="AppStarting" FontSize="14">
+            </ToggleButton>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    
 </Controls:MetroWindow>
