@@ -44,6 +44,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
+                            
 
                             <DatePicker Margin="10 5" FontSize="20" FontFamily="Gabriola"/>
                             <ListBox Grid.Row="1" Grid.ColumnSpan="2"
@@ -102,14 +103,7 @@
                                                         </DataTemplate>
                                                     </ListBox.ItemTemplate>
                                                 </ListBox>
-                                                <!--<TextBlock Grid.Column="0" Grid.Row="1" Text="Para1"/>
-                                                <TextBlock Grid.Column="0" Grid.Row="2" Text="Para2"/>
-                                                <TextBlock Grid.Column="0" Grid.Row="3" Text="Para3"/>
-                                                <TextBlock Grid.Column="0" Grid.Row="4" Text="Para4"/>
-                                                <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding pp[1].namePara}"/>
-                                                <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Text="{Binding pp[1].namePara}"/>
-                                                <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Text="{Binding pp[1].namePara}"/>-->
-
+                                                
                                             </Grid>
                                         </Border>
                                     </DataTemplate>
