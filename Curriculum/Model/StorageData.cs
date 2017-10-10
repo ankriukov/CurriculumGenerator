@@ -16,22 +16,30 @@ namespace Curriculum.Model
         public static List<LessonTypeLesson> LessonTypeL { get; set; }
         public static List<LessonTypeLessonTypeRoom> LessonTypeLessonTypeRooms { get; set; }
         public static List<Pair> Pairs { get; set; }
-        public static List<Room> Rooms { get; set; }
-        public static List
-        public static List<WorkDay> WorkDays { get; set; }
         public static List<Teacher> Teachers { get; set; }
+        public static List<Room> Rooms { get; set; }
+        public static List<RoomTypeRoom> RoomTypeRooms { get;set;}
+        public static List<TeacherLesson> TeacherLesson { get; set; }
         public static List<TypeLesson> TypeLessons { get; set; }
+        public static List<WorkDay> WorkDays { get; set; }
+        public static List<WorkDayPairs> WorkDayPairses { get; set; }
         #endregion
 
         static StorageData()
         {
-            WorkDays = DBMethods.getWorkDay();
-            Rooms = DBMethods.getRoom();
-            Teachers = DBMethods.getTeacher();
-            Pairs = DBMethods.getPair();
+            Groups = DBMethods.getGroups();
+            GroupLessonTypeLessons = DBMethods.getGroupLTypeL();
             Lessons = DBMethods.getLesson();
-            TypeLessons = DBMethods.getTypeLesson();
             LessonTypeL = DBMethods.getLesTypeLes();
+            LessonTypeLessonTypeRooms = DBMethods.getLTypeLTypeRoom();
+            Pairs = DBMethods.getPair();
+            Rooms = DBMethods.getRoom();
+            RoomTypeRooms = DBMethods.getRoomTypeRoom();
+            Teachers = DBMethods.getTeacher();
+            TeacherLesson = DBMethods.getTeacherLesson();
+            TypeLessons = DBMethods.getTypeLesson();
+            WorkDays = DBMethods.getWorkDay();
+            WorkDayPairses = DBMethods.getWorkDayPairs();
         }
 
         public static List<dynamic> GetTypesByLesson(string lesson)
