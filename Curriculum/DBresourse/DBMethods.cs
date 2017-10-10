@@ -238,6 +238,7 @@ namespace DataDll
                         Name = reader["Name"].ToString(),
                     });
                 }
+                connection.Close();
                 return ltl;
             }
         }

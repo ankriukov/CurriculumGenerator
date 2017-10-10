@@ -28,5 +28,10 @@ namespace DataDll
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }

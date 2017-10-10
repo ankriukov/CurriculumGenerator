@@ -42,23 +42,24 @@ namespace Curriculum.Model
             WorkDayPairses = DBMethods.getWorkDayPairs();
         }
 
-        public static List<dynamic> GetTypesByLesson(string lesson)
+        public static Dictionary<TypeLesson, int> GetTypesByLesson(Lesson lesson)
         {
-            var id_name = Lessons.Where(x => x.Name == lesson).Select(x => x.Id).FirstOrDefault();
-            var ltl = (from lesTypeles in LessonTypeL
-                      where lesTypeles.Id_Lesson == id_name 
+            Dictionary<TypeLesson, int> ForReturn = new Dictionary<TypeLesson, int>();
 
-            //var tr = from it in ltl
-            //         join tpLess in TypeLessons
-            //         on it.Id_TypeLesson equals tpLess.Id
-            //         select new
-            //         {
-            //             NameLesson = lesson,
-                         
-            //         }
+            var id_types = (from it in LessonTypeL
+                       where lesson.Id == it.Id_Lesson
+                       select new
+                       {
+                           id_type = it.Id_TypeLesson, hours = it.Hours
+                       }).ToList();
 
-
-            return null;
+            foreach (var item in TypeLessons)
+            {
+                var searchField = id_types.Find(x => x.id_type == item.Id);
+                if (searchField != null)
+                    ForReturn.Add(item, searchField.hours);   
+            }
+            return ForReturn;
         }
 
     }
