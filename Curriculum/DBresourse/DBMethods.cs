@@ -10,7 +10,7 @@ namespace DataDll
 {
     public class DBMethods
     {
-        private static SQLiteConnection connection = new SQLiteConnection(@"Data Source=..\..\Resources\DBCurriculum;Version=3;");
+        public static SQLiteConnection connection = new SQLiteConnection(@"Data Source=..\..\Resources\DBCurriculum;Version=3;");
 
         public static List<Group> getGroups()
         {
@@ -77,29 +77,21 @@ namespace DataDll
         {
             using (var query = new SQLiteCommand("SELECT * FROM LessonTypeLesson", connection))
             {
-                try
+                connection.Open();
+                SQLiteDataReader reader = query.ExecuteReader();
+                List<LessonTypeLesson> ltl = new List<LessonTypeLesson>();
+                while (reader.Read())
                 {
-                    connection.Open();
-                    SQLiteDataReader reader = query.ExecuteReader();
-                    List<LessonTypeLesson> ltl = new List<LessonTypeLesson>();
-                    while (reader.Read())
+                    ltl.Add(new LessonTypeLesson
                     {
-                        ltl.Add(new LessonTypeLesson
-                        {
-                            Id = Convert.ToInt32(reader["Id"]),
-                            Id_Lesson = Convert.ToInt32(reader["Id_Lesson"]),
-                            Id_TypeLesson = Convert.ToInt32(reader["Id_TypeLesson"]),
-                            Hours = Convert.ToInt32(reader["Hours"]),
-                        });
-                    }
-                    connection.Close();
-                    return ltl;
-
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Id_Lesson = Convert.ToInt32(reader["Id_Lesson"]),
+                        Id_TypeLesson = Convert.ToInt32(reader["Id_TypeLesson"]),
+                        Hours = Convert.ToInt32(reader["Hours"]),
+                    });
                 }
-                catch (Exception ex)
-                {
-                    return null;
-                }
+                connection.Close();
+                return ltl;
             }
         }
 
@@ -246,7 +238,6 @@ namespace DataDll
                         Name = reader["Name"].ToString(),
                     });
                 }
-                connection.Close();
                 return ltl;
             }
         }
@@ -263,7 +254,7 @@ namespace DataDll
                     lwd.Add(new WorkDay
                     {
                         Id = Convert.ToInt32(reader["Id"]),
-                        Date = DateTime.ParseExact(reader["Date"].ToString(), "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                        Date = DateTime.ParseExact(reader["Date"].ToString(),"dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture),
                     });
                 }
                 connection.Close();
@@ -282,9 +273,9 @@ namespace DataDll
                 {
                     lwdp.Add(new WorkDayPairs
                     {
-                        Id_WorkDay = Convert.ToInt32(reader["Id_WorkDay"]),
-                        Id_Pair = Convert.ToInt32(reader["Id_Pair"]),
-
+                       Id_WorkDay = Convert.ToInt32(reader["Id_WorkDay"]),
+                       Id_Pair = Convert.ToInt32(reader["Id_Pair"]),
+                       
                     });
                 }
                 connection.Close();
