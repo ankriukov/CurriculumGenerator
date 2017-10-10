@@ -35,13 +35,14 @@ namespace Curriculum.ViewModel
 
     public class MainViewModel 
     {
-        
+        public Dictionary<TypeLesson, int> ss { get; set; }
         //public List<Daa> gr { get; set; } = new List<Daa>();
         //public Daa qq { get; set; }
 
         public MainViewModel()
         {
-            var ss = StorageData.GetTypesByLesson("WCF");
+            ss = StorageData.GetTypesByLesson(new Lesson { Id = 1, Name = "WCF"});
+            
             //for (int i = 0; i < 5; i++)
             //{
             //    Daa tmp = new Daa();

@@ -282,7 +282,7 @@
                     <Expander Header="Предмет" Style="{StaticResource FlyoutsExpandersAdd}">
                         <StackPanel>
                             <TextBox Controls:TextBoxHelper.Watermark="Название предмета" Margin="10"/>
-                            <ListBox ItemsSource="{Binding Path=tt}">
+                            <ListBox ItemsSource="{Binding Path=ss}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <Grid>
@@ -291,8 +291,9 @@
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
 
-                                            <CheckBox Content="{Binding Path=ss}"/>
-                                            <TextBox Grid.Column="1" Text="{Binding ii}"/>
+                                            <CheckBox Content="{Binding Key}"/>
+                                            <Controls:NumericUpDown Minimum="0" Maximum="80" 
+                                                                    Grid.Column="1" Value="{Binding Value}"/>
 
                                         </Grid>
                                     </DataTemplate>
