@@ -1,4 +1,5 @@
-﻿using DataDll;
+﻿using Curriculum.Model;
+using DataDll;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,15 +31,17 @@ namespace Curriculum.ViewModel
     //        return groupa;
     //    }
     //}
+   
 
     public class MainViewModel 
     {
+        
         //public List<Daa> gr { get; set; } = new List<Daa>();
         //public Daa qq { get; set; }
 
         public MainViewModel()
         {
-            
+            var ss = StorageData.GetTypesByLesson("WCF");
             //for (int i = 0; i < 5; i++)
             //{
             //    Daa tmp = new Daa();

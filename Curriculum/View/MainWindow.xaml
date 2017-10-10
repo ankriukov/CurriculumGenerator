@@ -44,7 +44,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            
+
 
                             <DatePicker Margin="10 5" FontSize="20" FontFamily="Gabriola"/>
                             <ListBox Grid.Row="1" Grid.ColumnSpan="2"
@@ -103,7 +103,7 @@
                                                         </DataTemplate>
                                                     </ListBox.ItemTemplate>
                                                 </ListBox>
-                                                
+
                                             </Grid>
                                         </Border>
                                     </DataTemplate>
@@ -280,8 +280,25 @@
                              Position="Bottom" Height="500" Theme="Dark">
                 <WrapPanel Orientation="Horizontal">
                     <Expander Header="Предмет" Style="{StaticResource FlyoutsExpandersAdd}">
-                        <TextBox Controls:TextBoxHelper.Watermark="Название предмета" Margin="10"/>
-                        
+                        <StackPanel>
+                            <TextBox Controls:TextBoxHelper.Watermark="Название предмета" Margin="10"/>
+                            <ListBox ItemsSource="{Binding Path=tt}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <CheckBox Content="{Binding Path=ss}"/>
+                                            <TextBox Grid.Column="1" Text="{Binding ii}"/>
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
                     </Expander>
                     <Expander Header="Группу" Style="{StaticResource FlyoutsExpandersAdd}"></Expander>
                     <Expander Header="Преподавателя" Style="{StaticResource FlyoutsExpandersAdd}"></Expander>
@@ -291,13 +308,13 @@
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
 
-    <Controls:MetroWindow.RightWindowCommands>
+    <Controls:MetroWindow.LeftWindowCommands>
         <Controls:WindowCommands>
             <ToggleButton Content="Добавить"
                           IsChecked="{Binding ElementName=MahAppFlyout, Path=IsOpen}" 
                           Cursor="AppStarting" FontSize="14">
             </ToggleButton>
         </Controls:WindowCommands>
-    </Controls:MetroWindow.RightWindowCommands>
-    
+    </Controls:MetroWindow.LeftWindowCommands>
+
 </Controls:MetroWindow>
