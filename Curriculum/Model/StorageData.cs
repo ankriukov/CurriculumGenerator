@@ -10,14 +10,17 @@ namespace Curriculum.Model
     public static class StorageData
     {
         #region Lists of objects
-        public static List<WorkDay> WorkDays { get; set; }
-        public static List<Room> Rooms { get; set; }
         public static List<Group> Groups { get; set; }
+        public static List<GroupLessonTypeLesson> GroupLessonTypeLessons { get; set; }
         public static List<Lesson> Lessons { get; set; }
+        public static List<LessonTypeLesson> LessonTypeL { get; set; }
+        public static List<LessonTypeLessonTypeRoom> LessonTypeLessonTypeRooms { get; set; }
         public static List<Pair> Pairs { get; set; }
+        public static List<Room> Rooms { get; set; }
+        public static List
+        public static List<WorkDay> WorkDays { get; set; }
         public static List<Teacher> Teachers { get; set; }
         public static List<TypeLesson> TypeLessons { get; set; }
-        public static List<LessonTypeLesson> LessonTypeL { get; set; }
         #endregion
 
         static StorageData()
