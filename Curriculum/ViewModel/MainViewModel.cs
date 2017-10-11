@@ -1,5 +1,5 @@
-﻿using Curriculum.Model;
-using DataDll;
+﻿using Curriculum.DBresourse.Classes;
+using Curriculum.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

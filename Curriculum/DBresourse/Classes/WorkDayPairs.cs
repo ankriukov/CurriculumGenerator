@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataDll
+namespace Curriculum.DBresourse.Classes
 {
     public class WorkDayPairs : INotifyPropertyChanged
     {

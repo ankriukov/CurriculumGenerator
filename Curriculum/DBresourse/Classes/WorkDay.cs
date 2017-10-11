@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataDll
+namespace Curriculum.DBresourse.Classes
 {
     public class WorkDay : INotifyPropertyChanged
     {

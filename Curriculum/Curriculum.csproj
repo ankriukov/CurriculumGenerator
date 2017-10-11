@@ -109,6 +109,7 @@
     <Compile Include="DBresourse\Classes\WorkDay.cs" />
     <Compile Include="DBresourse\Classes\WorkDayPairs.cs" />
     <Compile Include="DBresourse\DBMethods.cs" />
+    <Compile Include="DBresourse\ExceptionLogging.cs" />
     <Compile Include="Infrastructure\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

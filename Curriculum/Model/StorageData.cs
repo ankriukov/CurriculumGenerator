@@ -1,4 +1,5 @@
-﻿using DataDll;
+﻿using Curriculum.DBresourse;
+using Curriculum.DBresourse.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
