@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataDll;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -7,25 +8,21 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataDll
+namespace Curriculum.Model
 {
-    public class WorkDay : INotifyPropertyChanged
+    public class ProxyData : INotifyPropertyChanged
     {
-        public int Id { get; set; }
-
-        private DateTime date;
-        public DateTime Date
+        public ObservableCollection<Teacher> Teachers
         {
-            get { return date; }
-            set
-            {
-                date = value;
-                OnPropertyChanged();
-            }
+            get { return StorageData.Teachers; }
+            set { StorageData.Teachers = value; }
         }
 
-
-        public ObservableCollection<Pair> Pairs { get; set; }
+        public ObservableCollection<Lesson> Lessons
+        {
+            get { return StorageData.Lessons; }
+            set { StorageData.Lessons = value; }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")

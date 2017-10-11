@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.SQLite;
 using System.Globalization;
 using System.Linq;
@@ -12,13 +13,13 @@ namespace DataDll
     {
         public static SQLiteConnection connection = new SQLiteConnection(@"Data Source=..\..\Resources\DBCurriculum;Version=3;");
 
-        public static List<Group> getGroups()
+        public static ObservableCollection<Group> getGroups()
         {
             using (var query = new SQLiteCommand("SELECT * FROM Group_", connection))
             {
                 connection.Open();
                 SQLiteDataReader reader = query.ExecuteReader();
-                List<Group> lg = new List<Group>();
+                ObservableCollection<Group> lg = new ObservableCollection<Group>();
                 while (reader.Read())
                 {
                     lg.Add(new Group
@@ -33,13 +34,13 @@ namespace DataDll
             }
         }
 
-        public static List<GroupLessonTypeLesson> getGroupLTypeL()
+        public static ObservableCollection<GroupLessonTypeLesson> getGroupLTypeL()
         {
             using (var query = new SQLiteCommand("SELECT * FROM GroupLessonTypeLesson", connection))
             {
                 connection.Open();
                 SQLiteDataReader reader = query.ExecuteReader();
-                List<GroupLessonTypeLesson> gltl = new List<GroupLessonTypeLesson>();
+                ObservableCollection<GroupLessonTypeLesson> gltl = new ObservableCollection<GroupLessonTypeLesson>();
                 while (reader.Read())
                 {
                     gltl.Add(new GroupLessonTypeLesson
@@ -53,13 +54,13 @@ namespace DataDll
             }
         }
 
-        public static List<Lesson> getLesson()
+        public static ObservableCollection<Lesson> getLesson()
         {
             using (var query = new SQLiteCommand("SELECT * FROM Lesson", connection))
             {
                 connection.Open();
                 SQLiteDataReader reader = query.ExecuteReader();
-                List<Lesson> ll = new List<Lesson>();
+                ObservableCollection<Lesson> ll = new ObservableCollection<Lesson>();
                 while (reader.Read())
                 {
                     ll.Add(new Lesson
@@ -73,13 +74,13 @@ namespace DataDll
             }
         }
 
-        public static List<LessonTypeLesson> getLesTypeLes()
+        public static ObservableCollection<LessonTypeLesson> getLesTypeLes()
         {
             using (var query = new SQLiteCommand("SELECT * FROM LessonTypeLesson", connection))
             {
                 connection.Open();
                 SQLiteDataReader reader = query.ExecuteReader();
-                List<LessonTypeLesson> ltl = new List<LessonTypeLesson>();
+                ObservableCollection<LessonTypeLesson> ltl = new ObservableCollection<LessonTypeLesson>();
                 while (reader.Read())
                 {
                     ltl.Add(new LessonTypeLesson
@@ -95,13 +96,13 @@ namespace DataDll
             }
         }
 
-        public static List<LessonTypeLessonTypeRoom> getLTypeLTypeRoom()
+        public static ObservableCollection<LessonTypeLessonTypeRoom> getLTypeLTypeRoom()
         {
             using (var query = new SQLiteCommand("SELECT * FROM LessonTypeLessonTypeRoom", connection))
             {
                 connection.Open();
                 SQLiteDataReader reader = query.ExecuteReader();
-                List<LessonTypeLessonTypeRoom> ltltr = new List<LessonTypeLessonTypeRoom>();
+                ObservableCollection<LessonTypeLessonTypeRoom> ltltr = new ObservableCollection<LessonTypeLessonTypeRoom>();
                 while (reader.Read())
                 {
                     ltltr.Add(new LessonTypeLessonTypeRoom
@@ -115,13 +116,13 @@ namespace DataDll
             }
         }
 
-        public static List<Pair> getPair()
+        public static ObservableCollection<Pair> getPair()
         {
             using (var query = new SQLiteCommand("SELECT * FROM Pair", connection))
             {
                 connection.Open();
                 SQLiteDataReader reader = query.ExecuteReader();
-                List<Pair> lp = new List<Pair>();
+                ObservableCollection<Pair> lp = new ObservableCollection<Pair>();
                 while (reader.Read())
                 {
                     lp.Add(new Pair
@@ -139,13 +140,13 @@ namespace DataDll
             }
         }
 
-        public static List<Room> getRoom()
+        public static ObservableCollection<Room> getRoom()
         {
             using (var query = new SQLiteCommand("SELECT * FROM Room", connection))
             {
                 connection.Open();
                 SQLiteDataReader reader = query.ExecuteReader();
-                List<Room> lr = new List<Room>();
+                ObservableCollection<Room> lr = new ObservableCollection<Room>();
                 while (reader.Read())
                 {
                     lr.Add(new Room
@@ -159,13 +160,13 @@ namespace DataDll
             }
         }
 
-        public static List<RoomTypeRoom> getRoomTypeRoom()
+        public static ObservableCollection<RoomTypeRoom> getRoomTypeRoom()
         {
             using (var query = new SQLiteCommand("SELECT * FROM RoomTypeRoom", connection))
             {
                 connection.Open();
                 SQLiteDataReader reader = query.ExecuteReader();
-                List<RoomTypeRoom> lrtr = new List<RoomTypeRoom>();
+                ObservableCollection<RoomTypeRoom> lrtr = new ObservableCollection<RoomTypeRoom>();
                 while (reader.Read())
                 {
                     lrtr.Add(new RoomTypeRoom
@@ -179,13 +180,13 @@ namespace DataDll
             }
         }
 
-        public static List<Teacher> getTeacher()
+        public static ObservableCollection<Teacher> getTeacher()
         {
             using (var query = new SQLiteCommand("SELECT * FROM Teacher", connection))
             {
                 connection.Open();
                 SQLiteDataReader reader = query.ExecuteReader();
-                List<Teacher> lt = new List<Teacher>();
+                ObservableCollection<Teacher> lt = new ObservableCollection<Teacher>();
                 while (reader.Read())
                 {
                     lt.Add(new Teacher
@@ -203,13 +204,13 @@ namespace DataDll
             }
         }
 
-        public static List<TeacherLesson> getTeacherLesson()
+        public static ObservableCollection<TeacherLesson> getTeacherLesson()
         {
             using (var query = new SQLiteCommand("SELECT * FROM TeacherLesson", connection))
             {
                 connection.Open();
                 SQLiteDataReader reader = query.ExecuteReader();
-                List<TeacherLesson> ltl = new List<TeacherLesson>();
+                ObservableCollection<TeacherLesson> ltl = new ObservableCollection<TeacherLesson>();
                 while (reader.Read())
                 {
                     ltl.Add(new TeacherLesson
@@ -223,13 +224,13 @@ namespace DataDll
             }
         }
 
-        public static List<TypeLesson> getTypeLesson()
+        public static ObservableCollection<TypeLesson> getTypeLesson()
         {
             using (var query = new SQLiteCommand("SELECT * FROM TypeLesson", connection))
             {
                 connection.Open();
                 SQLiteDataReader reader = query.ExecuteReader();
-                List<TypeLesson> ltl = new List<TypeLesson>();
+                ObservableCollection<TypeLesson> ltl = new ObservableCollection<TypeLesson>();
                 while (reader.Read())
                 {
                     ltl.Add(new TypeLesson
@@ -243,13 +244,13 @@ namespace DataDll
             }
         }
 
-        public static List<WorkDay> getWorkDay()
+        public static ObservableCollection<WorkDay> getWorkDay()
         {
             using (var query = new SQLiteCommand("SELECT * FROM WorkDay", connection))
             {
                 connection.Open();
                 SQLiteDataReader reader = query.ExecuteReader();
-                List<WorkDay> lwd = new List<WorkDay>();
+                ObservableCollection<WorkDay> lwd = new ObservableCollection<WorkDay>();
                 while (reader.Read())
                 {
                     lwd.Add(new WorkDay
@@ -263,13 +264,13 @@ namespace DataDll
             }
         }
 
-        public static List<WorkDayPairs> getWorkDayPairs()
+        public static ObservableCollection<WorkDayPairs> getWorkDayPairs()
         {
             using (var query = new SQLiteCommand("SELECT * FROM WorkDayPairs", connection))
             {
                 connection.Open();
                 SQLiteDataReader reader = query.ExecuteReader();
-                List<WorkDayPairs> lwdp = new List<WorkDayPairs>();
+                ObservableCollection<WorkDayPairs> lwdp = new ObservableCollection<WorkDayPairs>();
                 while (reader.Read())
                 {
                     lwdp.Add(new WorkDayPairs
