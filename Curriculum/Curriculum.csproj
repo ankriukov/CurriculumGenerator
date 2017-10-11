@@ -120,6 +120,8 @@
     </Compile>
     <Compile Include="Infrastructure\RelayCommand.cs" />
     <Compile Include="Model\Commands.cs" />
+    <Compile Include="Model\HardProxyData.cs" />
+    <Compile Include="Model\ProxyData.cs" />
     <Compile Include="Model\StorageData.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">

@@ -1,26 +1,21 @@
-﻿using System;
+﻿using DataDll;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataDll
+namespace Curriculum.Model
 {
-    public class TypeLesson : INotifyPropertyChanged
+    public class HardProxyData : INotifyPropertyChanged
     {
-        public int Id { get; set; }
-
-        private string name;
-        public string Name
+        public ObservableCollection<Teacher> d
         {
-            get { return name; }
-            set
-            {
-                name = value;
-                OnPropertyChanged();
-            }
+            get { return StorageData.Teachers; }
+            set { StorageData.Teachers = value; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -30,3 +25,4 @@ namespace DataDll
         }
     }
 }
+

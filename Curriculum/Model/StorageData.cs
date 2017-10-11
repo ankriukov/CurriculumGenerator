@@ -1,6 +1,7 @@
 ﻿using DataDll;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,20 +10,20 @@ namespace Curriculum.Model
 {
     public static class StorageData
     {
-        #region Lists of objects
-        public static List<Group> Groups { get; set; }
-        public static List<GroupLessonTypeLesson> GroupLessonTypeLessons { get; set; }
-        public static List<Lesson> Lessons { get; set; }
-        public static List<LessonTypeLesson> LessonTypeL { get; set; }
-        public static List<LessonTypeLessonTypeRoom> LessonTypeLessonTypeRooms { get; set; }
-        public static List<Pair> Pairs { get; set; }
-        public static List<Teacher> Teachers { get; set; }
-        public static List<Room> Rooms { get; set; }
-        public static List<RoomTypeRoom> RoomTypeRooms { get;set;}
-        public static List<TeacherLesson> TeacherLesson { get; set; }
-        public static List<TypeLesson> TypeLessons { get; set; }
-        public static List<WorkDay> WorkDays { get; set; }
-        public static List<WorkDayPairs> WorkDayPairses { get; set; }
+        #region ObservableCollections of objects
+        public static ObservableCollection<Group> Groups { get; set; }
+        public static ObservableCollection<GroupLessonTypeLesson> GroupLessonTypeLessons { get; set; }
+        public static ObservableCollection<Lesson> Lessons { get; set; }
+        public static ObservableCollection<LessonTypeLesson> LessonTypeL { get; set; }
+        public static ObservableCollection<LessonTypeLessonTypeRoom> LessonTypeLessonTypeRooms { get; set; }
+        public static ObservableCollection<Pair> Pairs { get; set; }
+        public static ObservableCollection<Teacher> Teachers { get; set; }
+        public static ObservableCollection<Room> Rooms { get; set; }
+        public static ObservableCollection<RoomTypeRoom> RoomTypeRooms { get;set;}
+        public static ObservableCollection<TeacherLesson> TeacherLesson { get; set; }
+        public static ObservableCollection<TypeLesson> TypeLessons { get; set; }
+        public static ObservableCollection<WorkDay> WorkDays { get; set; }
+        public static ObservableCollection<WorkDayPairs> WorkDayPairses { get; set; }
         #endregion
 
         static StorageData()

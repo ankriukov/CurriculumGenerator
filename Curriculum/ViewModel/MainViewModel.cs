@@ -31,16 +31,23 @@ namespace Curriculum.ViewModel
     //        return groupa;
     //    }
     //}
-   
 
-    public class MainViewModel 
+
+    public class MainViewModel
     {
+        public ProxyData SimpleData { get; set; }
+        public HardProxyData LinqData { get; set; }
+
+        public List<Teacher> tch { get; set; }
         public Dictionary<TypeLesson, int> ss { get; set; }
         //public List<Daa> gr { get; set; } = new List<Daa>();
         //public Daa qq { get; set; }
 
         public MainViewModel()
         {
+            tch = new List<Teacher>(StorageData.Teachers);
+            SimpleData = new ProxyData();
+            LinqData = new HardProxyData();
             ss = StorageData.GetTypesByLesson(new Lesson { Id = 1, Name = "WCF"});
             
             //for (int i = 0; i < 5; i++)
