@@ -1,4 +1,4 @@
-﻿using DataDll;
+﻿using Curriculum.DBresourse;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,17 +12,26 @@ namespace Curriculum.Model
 {
     public class ProxyData : INotifyPropertyChanged
     {
-        public ObservableCollection<Teacher> Teachers
+        private DBStorage context;
+
+        #region Observable objects
+        public ObservableCollection<Teacher> Teachers { get; set; }
+        public ObservableCollection<Group_> Groups { get; set; }
+        public ObservableCollection<Lesson> Lessons { get; set; }
+        public ObservableCollection<WorkDay> WorkDays { get; set; }
+        public ObservableCollection<Room> Rooms { get; set; }
+        #endregion Observable objects
+
+        public ProxyData()
         {
-            get { return StorageData.Teachers; }
-            set { StorageData.Teachers = value; }
+            context = new DBStorage();
+            Teachers = new ObservableCollection<Teacher>(context.Teacher.AsEnumerable());
+            Groups = new ObservableCollection<Group_>(context.Group_.AsEnumerable());
+            Lessons = new ObservableCollection<Lesson>(context.Lesson.AsEnumerable());
+            WorkDays = new ObservableCollection<WorkDay>(context.WorkDay.AsEnumerable());
+            Rooms = new ObservableCollection<Room>(context.Room.AsEnumerable());
         }
 
-        public ObservableCollection<Lesson> Lessons
-        {
-            get { return StorageData.Lessons; }
-            set { StorageData.Lessons = value; }
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")

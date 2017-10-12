@@ -1,7 +1,6 @@
-﻿using DataDll;
+﻿using Curriculum.DBresourse;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -10,13 +9,18 @@ using System.Threading.Tasks;
 
 namespace Curriculum.Model
 {
-    public class HardProxyData : INotifyPropertyChanged
+    public class SelectedData : INotifyPropertyChanged
     {
-        public ObservableCollection<Teacher> d
+        public Teacher Sel_Teacher
         {
-            get { return StorageData.Teachers; }
-            set { StorageData.Teachers = value; }
+            get { return CommonSelectedData.Sel_Teacher; }
+            set
+            {
+                CommonSelectedData.Sel_Teacher = value;
+                OnPropertyChanged();
+            }
         }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
@@ -25,4 +29,3 @@ namespace Curriculum.Model
         }
     }
 }
-

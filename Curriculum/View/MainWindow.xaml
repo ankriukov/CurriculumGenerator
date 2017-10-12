@@ -173,7 +173,7 @@
                                     групп
                                 </TextBlock>
 
-                                <ListBox ItemsSource="{Binding Path=gr}"/>
+                                <ListBox ItemsSource="{Binding Path=SimpleData.Groups}"/>
                             </StackPanel>
 
                             <GridSplitter Grid.Column="1" Background="#FF41B1E1" ShowsPreview="False" Width="3"
@@ -342,7 +342,7 @@
                                     аудиторий
                                 </TextBlock>
 
-                                <ListBox ItemsSource="{Binding Path=gr}"/>
+                                <ListBox ItemsSource="{Binding Path=SimpleData.Rooms}"/>
                             </StackPanel>
                         </Grid>
                     </TabItem.Content>

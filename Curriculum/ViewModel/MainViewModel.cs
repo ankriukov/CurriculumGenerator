@@ -36,7 +36,7 @@ namespace Curriculum.ViewModel
     public class MainViewModel
     {
         public ProxyData SimpleData { get; set; }
-        public HardProxyData LinqData { get; set; }
+        public SelectedData Selected { get; set; }
 
         public List<Teacher> tch { get; set; }
         public Dictionary<TypeLesson, int> ss { get; set; }
@@ -45,10 +45,8 @@ namespace Curriculum.ViewModel
 
         public MainViewModel()
         {
-            tch = new List<Teacher>(StorageData.Teachers);
             SimpleData = new ProxyData();
-            LinqData = new HardProxyData();
-            ss = StorageData.GetTypesByLesson(new Lesson { Id = 1, Name = "WCF"});
+            Selected = new SelectedData();
             
             //for (int i = 0; i < 5; i++)
             //{

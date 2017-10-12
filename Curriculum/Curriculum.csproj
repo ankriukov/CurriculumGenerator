@@ -65,6 +65,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -109,6 +111,16 @@
     <Compile Include="DBresourse\Classes\WorkDay.cs" />
     <Compile Include="DBresourse\Classes\WorkDayPairs.cs" />
     <Compile Include="DBresourse\DBMethods.cs" />
+    <Compile Include="DBresourse\DBStorage.cs" />
+    <Compile Include="DBresourse\Group_.cs" />
+    <Compile Include="DBresourse\Lesson.cs" />
+    <Compile Include="DBresourse\LessonTypeLesson.cs" />
+    <Compile Include="DBresourse\Pair.cs" />
+    <Compile Include="DBresourse\Room.cs" />
+    <Compile Include="DBresourse\Teacher.cs" />
+    <Compile Include="DBresourse\TypeLesson.cs" />
+    <Compile Include="DBresourse\TypeRoom.cs" />
+    <Compile Include="DBresourse\WorkDay.cs" />
     <Compile Include="Infrastructure\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -120,8 +132,9 @@
     </Compile>
     <Compile Include="Infrastructure\RelayCommand.cs" />
     <Compile Include="Model\Commands.cs" />
-    <Compile Include="Model\HardProxyData.cs" />
+    <Compile Include="Model\CommonSelectedData.cs" />
     <Compile Include="Model\ProxyData.cs" />
+    <Compile Include="Model\SelectedData.cs" />
     <Compile Include="Model\StorageData.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
@@ -151,6 +164,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
