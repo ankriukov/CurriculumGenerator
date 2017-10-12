@@ -137,14 +137,14 @@
                                     предметов
                                 </TextBlock>
 
-                                <ListBox ItemsSource="{Binding SimpleData.Lessons}"/>
-
-                                <GridSplitter Grid.Column="1" Background="#FF41B1E1" ShowsPreview="False" Width="3"
-                                          HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
-
-                                <ListBox/>
+                                <ListBox Margin="5 10" ItemsSource="{Binding SimpleData.Lessons}" SelectedItem="{Binding Selected.Sel_Lesson}"/>
                             </StackPanel>
 
+                            <GridSplitter Grid.Column="1" Background="#FF41B1E1" ShowsPreview="False" Width="3"
+                                          HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+
+                            <ListBox Grid.Column="2" Margin="5 10" ItemsSource="{Binding Selected.Sel_Lesson.Teacher}" 
+                                     SelectionMode="Multiple" SelectedItem="{Binding Selected.Sel_Teachers}"/>
                         </Grid>
                     </TabItem.Content>
                 </TabItem>
@@ -173,7 +173,7 @@
                                     групп
                                 </TextBlock>
 
-                                <ListBox ItemsSource="{Binding Path=SimpleData.Groups}"/>
+                                <ListBox Margin="10 5" ItemsSource="{Binding Path=SimpleData.Groups}" SelectedItem="{Binding Selected.Sel_Group}"/>
                             </StackPanel>
 
                             <GridSplitter Grid.Column="1" Background="#FF41B1E1" ShowsPreview="False" Width="3"
@@ -186,11 +186,13 @@
                                         <StackPanel>
                                             <TextBlock Text="Номер группы"/>
                                             <TextBox Controls:TextBoxHelper.Watermark="Номер группы"
-                                                     Controls:TextBoxHelper.ClearTextButton="True"/>
+                                                     Controls:TextBoxHelper.ClearTextButton="True"
+                                                     Text="{Binding Selected.Sel_Group.Number}"/>
 
                                             <TextBlock Text="Специальность" Margin="0 10 0 0"/>
                                             <TextBox Controls:TextBoxHelper.Watermark="Специальность"
-                                                     Controls:TextBoxHelper.ClearTextButton="True"/>
+                                                     Controls:TextBoxHelper.ClearTextButton="True"
+                                                     Text="{Binding Selected.Sel_Group.Specialty}"/>
                                         </StackPanel>
                                     </Expander.Content>
                                 </Expander>
@@ -253,7 +255,7 @@
                                     преподавателей
                                 </TextBlock>
 
-                                <ListBox ItemsSource="{Binding Path=SimpleData.Teachers}"/>
+                                <ListBox Margin="10 5" ItemsSource="{Binding Path=SimpleData.Teachers}" SelectedItem="{Binding Path=Selected.Sel_Teacher, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                             </StackPanel>
 
                             <GridSplitter Grid.Column="1" Background="#FF41B1E1" ShowsPreview="False" Width="3"
@@ -261,30 +263,35 @@
 
                             <!--Вкладка №3. Правая часть-->
                             <StackPanel Margin="10" Grid.Column="2" >
-                                <Expander Header="Изменить данные" Margin="10" Padding="10 15">
+                                <Expander Header="Изменить данные преподвателя" Margin="10" Padding="10 15">
                                     <Expander.Content>
                                         <StackPanel>
                                             <TextBlock Text="Имя"/>
                                             <TextBox Controls:TextBoxHelper.Watermark="Имя"
-                                                     Controls:TextBoxHelper.ClearTextButton="True"
-                                                     />
+                                                     Controls:TextBoxHelper.ClearTextButton="True" 
+                                                     Text="{Binding Selected.Sel_Teacher.Name, Mode=TwoWay}"/>
 
                                             <TextBlock Text="Фамилия" Margin="0 10 0 0"/>
                                             <TextBox Controls:TextBoxHelper.Watermark="Фамилия"
-                                                     Controls:TextBoxHelper.ClearTextButton="True"/>
+                                                     Controls:TextBoxHelper.ClearTextButton="True"
+                                                     Text="{Binding Selected.Sel_Teacher.Surname, Mode=TwoWay}"/>
 
                                             <TextBlock Text="Отчество"/>
                                             <TextBox Controls:TextBoxHelper.Watermark="Отчество"
-                                                     Controls:TextBoxHelper.ClearTextButton="True"/>
+                                                     Controls:TextBoxHelper.ClearTextButton="True"
+                                                     Text="{Binding Selected.Sel_Teacher.Patronomic, Mode=TwoWay}"/>
 
                                             <TextBlock Text="Возраст"/>
                                             <TextBox Controls:TextBoxHelper.Watermark="Возраст"
-                                                     Controls:TextBoxHelper.ClearTextButton="True"/>
+                                                     Controls:TextBoxHelper.ClearTextButton="True"
+                                                     Text="{Binding Selected.Sel_Teacher.Age, Mode=TwoWay}"/>
 
                                         </StackPanel>
                                     </Expander.Content>
                                 </Expander>
 
+                                <ListBox Margin="10 5" ItemsSource="{Binding Path=SimpleData.Lessons}" 
+                                         SelectionMode="Multiple" SelectedItem="{Binding Selected.Sel_Teacher.Lesson}"/>
                                 <WrapPanel>
                                     <!--Список пар-->
                                     <ListBox ItemsSource="{Binding Path=qq.pp}">
@@ -342,7 +349,7 @@
                                     аудиторий
                                 </TextBlock>
 
-                                <ListBox ItemsSource="{Binding Path=SimpleData.Rooms}"/>
+                                <ListBox Margin="10 5" ItemsSource="{Binding Path=SimpleData.Rooms}"/>
                             </StackPanel>
                         </Grid>
                     </TabItem.Content>

@@ -41,7 +41,7 @@ namespace Curriculum.DBresourse
 
         public override string ToString()
         {
-            return $"{Surname} {Name} {Patronomic} (возраст: {Age})";
+            return $"{Surname} {Name} {Patronomic} (age: {Age})";
         }
     }
 }
