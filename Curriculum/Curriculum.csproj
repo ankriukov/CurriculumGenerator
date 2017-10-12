@@ -221,12 +221,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\DBFile\DBWorkProcess.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\DBFile\DBWorkProcess_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\DBFile\DBWorkProcess.mdf" />
+    <None Include="Resources\DBFile\DBWorkProcess_log.ldf" />
     <Content Include="Resources\DBFile\scriptToCreate.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

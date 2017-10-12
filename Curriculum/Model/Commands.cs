@@ -10,5 +10,6 @@ namespace Curriculum.ViewModel
     public class Commands
     {
         //private ICommand 
+
     }
 }
