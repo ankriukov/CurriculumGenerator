@@ -1,5 +1,4 @@
 ﻿using Curriculum.Model;
-using DataDll;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,20 +35,17 @@ namespace Curriculum.ViewModel
     public class MainViewModel
     {
         public ProxyData SimpleData { get; set; }
-        public HardProxyData LinqData { get; set; }
-
-        public List<Teacher> tch { get; set; }
-        public Dictionary<TypeLesson, int> ss { get; set; }
+        public SelectedData Selected { get; set; }
+        
+        //public List<Teacher> tch { get; set; }
+        //public Dictionary<TypeLesson, int> ss { get; set; }
         //public List<Daa> gr { get; set; } = new List<Daa>();
         //public Daa qq { get; set; }
 
         public MainViewModel()
         {
-            tch = new List<Teacher>(StorageData.Teachers);
             SimpleData = new ProxyData();
-            LinqData = new HardProxyData();
-            ss = StorageData.GetTypesByLesson(new Lesson { Id = 1, Name = "WCF"});
-            
+            Selected = new SelectedData();
             //for (int i = 0; i < 5; i++)
             //{
             //    Daa tmp = new Daa();
@@ -66,7 +62,7 @@ namespace Curriculum.ViewModel
             //    gr.Add(tmp);
             //    qq = tmp;
 
-                
+
             //}
             //gr[0].pp[1].nameAuditory;
         }
