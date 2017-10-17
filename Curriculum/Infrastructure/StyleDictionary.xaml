@@ -46,7 +46,7 @@
 
     <Style TargetType="{x:Type Expander}" x:Key="FlyoutsExpandersAdd">
         <Setter Property="Margin" Value="15"/>
-        <Setter Property="Width" Value="250"/>
+        <Setter Property="Width" Value="280"/>
         <Setter Property="FontStyle" Value="Oblique"/>
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="Foreground" Value="#FF8DC2D8"/>
