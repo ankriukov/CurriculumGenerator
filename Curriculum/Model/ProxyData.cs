@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -12,26 +13,89 @@ namespace Curriculum.Model
 {
     public class ProxyData : INotifyPropertyChanged
     {
-        private DBStorage context;
-
         #region Observable objects
-        public ObservableCollection<Teacher> Teachers { get; set; }
-        public ObservableCollection<Group_> Groups { get; set; }
-        public ObservableCollection<Lesson> Lessons { get; set; }
-        public ObservableCollection<WorkDay> WorkDays { get; set; }
-        public ObservableCollection<Room> Rooms { get; set; }
-        #endregion Observable objects
-
-        public ProxyData()
+        public ObservableCollection<Teacher> Teachers
         {
-            context = new DBStorage();
-            Teachers = new ObservableCollection<Teacher>(context.Teacher.AsEnumerable());
-            Groups = new ObservableCollection<Group_>(context.Group_.AsEnumerable());
-            Lessons = new ObservableCollection<Lesson>(context.Lesson.AsEnumerable());
-            WorkDays = new ObservableCollection<WorkDay>(context.WorkDay.AsEnumerable());
-            Rooms = new ObservableCollection<Room>(context.Room.AsEnumerable());
+            get { return StaticProxy.Teachers; }
+            set
+            {
+                StaticProxy.Teachers = value;
+                OnPropertyChanged();
+            }
         }
-
+        public ObservableCollection<Group_> Groups
+        {
+            get { return StaticProxy.Groups; }
+            set
+            {
+                StaticProxy.Groups = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<Lesson> Lessons
+        {
+            get { return StaticProxy.Lessons; }
+            set
+            {
+                StaticProxy.Lessons = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<WorkDay> WorkDays
+        {
+            get { return StaticProxy.WorkDays; }
+            set
+            {
+                StaticProxy.WorkDays = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<Room> Rooms
+        {
+            get { return StaticProxy.Rooms; }
+            set
+            {
+                StaticProxy.Rooms = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<TypeLesson> TypesLesson
+        {
+            get { return StaticProxy.TypesLesson; }
+            set
+            {
+                StaticProxy.TypesLesson = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<TypeRoom> TypesRoom
+        {
+            get { return StaticProxy.TypesRoom; }
+            set
+            {
+                StaticProxy.TypesRoom = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<Pair> Pairs
+        {
+            get { return StaticProxy.Pairs; }
+            set
+            {
+                StaticProxy.Pairs = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<LessonTypeLesson> LessonTypesLesson
+        {
+            get { return StaticProxy.LessonTypesLesson; }
+            set
+            {
+                StaticProxy.LessonTypesLesson = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion Observable objects
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")

@@ -3,6 +3,7 @@
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                       xmlns:properties="clr-namespace:Curriculum.Properties"
+                      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                       Title="MainWindow"
                       Height="600"
                       Width="800"
@@ -26,7 +27,9 @@
         <StackPanel Orientation="Vertical" Margin="-2 0" Grid.ColumnSpan="2">
             <TabControl TabStripPlacement="Left" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Controls:MetroWindow}, Path=Height}">
 
-                <!--Вкладка №1. Календарь-->
+                
+    <!--Вкладка №1. Календарь-->
+    
                 <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
@@ -46,12 +49,14 @@
                             </Grid.ColumnDefinitions>
 
 
-                            <DatePicker Margin="10 5" FontSize="20" FontFamily="Gabriola"/>
-                            <ListBox Grid.Row="1" Grid.ColumnSpan="2"
+                            <DatePicker Margin="10 5" FontSize="20" 
+                                        SelectedDate="{Binding TB.Sel_DateTime}"
+                                        FontFamily="Gabriola"/>
+                            <!--<ListBox Grid.Row="1" Grid.ColumnSpan="2"
                                      ScrollViewer.VerticalScrollBarVisibility="Auto"  
                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                                      ScrollViewer.CanContentScroll="True"
-                                     ItemsSource="{Binding gr, Mode=TwoWay}">
+                                     ItemsSource="{Binding TB.PairsAtDay, Mode=TwoWay}">
 
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -77,7 +82,7 @@
                                                 </Grid.RowDefinitions>
 
 
-                                                <TextBlock Grid.ColumnSpan="3" Text="{Binding groupa}"/>
+                                                <TextBlock Grid.ColumnSpan="3" Text="{Binding TB.PairsAtDay}"/>
                                                 <ListBox Grid.ColumnSpan="3" Grid.RowSpan="3" Grid.Row="1" ItemsSource="{Binding Path=pp}">
                                                     <ListBox.ItemTemplate>
                                                         <DataTemplate>
@@ -108,13 +113,15 @@
                                         </Border>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
-                            </ListBox>
+                            </ListBox>-->
 
                         </Grid>
                     </TabItem.Content>
                 </TabItem>
 
-                <!--Вкладка №2. Предметы-->
+                
+    <!--Вкладка №2. Предметы-->
+    
                 <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
@@ -137,19 +144,22 @@
                                     предметов
                                 </TextBlock>
 
-                                <ListBox Margin="5 10" ItemsSource="{Binding SimpleData.Lessons}" SelectedItem="{Binding Selected.Sel_Lesson}"/>
+                                <ListBox Margin="5 10" ItemsSource="{Binding SimpleData.Lessons}" 
+                                         SelectedItem="{Binding TB.Sel_Lesson}"/>
                             </StackPanel>
 
                             <GridSplitter Grid.Column="1" Background="#FF41B1E1" ShowsPreview="False" Width="3"
                                           HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
 
-                            <ListBox Grid.Column="2" Margin="5 10" ItemsSource="{Binding Selected.Sel_Lesson.Teacher}" 
-                                     SelectionMode="Multiple" SelectedItem="{Binding Selected.Sel_Teachers}"/>
+                            <ListBox Grid.Column="2" Margin="5 10" ItemsSource="{Binding TB.Sel_Lesson.Teacher}" IsEnabled="False"
+                                     Foreground="Black"/>
                         </Grid>
                     </TabItem.Content>
                 </TabItem>
 
-                <!--Вкладка №3. Группы-->
+                
+    <!--Вкладка №3. Группы-->
+    
                 <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
@@ -165,7 +175,9 @@
                                 <ColumnDefinition Width="3*" MinWidth="215"/>
                             </Grid.ColumnDefinitions>
 
-                            <!--Вкладка №3. Левая часть (Список групп)-->
+                            
+    <!--Вкладка №3. Левая часть (Список групп)-->
+    
                             <StackPanel Margin="10">
                                 <TextBlock Foreground="#FF303030" FontSize="42">
                                     Список 
@@ -179,7 +191,9 @@
                             <GridSplitter Grid.Column="1" Background="#FF41B1E1" ShowsPreview="False" Width="3"
                                           HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
 
-                            <!--Вкладка №3. Правая часть-->
+                            
+    <!--Вкладка №3. Правая часть-->
+    
                             <StackPanel Margin="10" Grid.Column="2" >
                                 <Expander Header="Изменить данные" Margin="10" Padding="10 15">
                                     <Expander.Content>
@@ -199,7 +213,9 @@
 
                                 <WrapPanel>
                                     <Calendar Margin="10"/>
-                                    <!--Список пар-->
+                                    
+    <!--Список пар-->
+    
                                     <ListBox ItemsSource="{Binding Path=qq.pp}">
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
@@ -231,7 +247,9 @@
                     </TabItem.Content>
                 </TabItem>
 
-                <!--Вкладка №4. Преподаватели-->
+                
+    <!--Вкладка №4. Преподаватели-->
+    
                 <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
@@ -247,7 +265,9 @@
                                 <ColumnDefinition Width="2*" MinWidth="180"/>
                             </Grid.ColumnDefinitions>
 
-                            <!--Вкладка №3. Левая часть (Список преподавателей)-->
+                            
+    <!--Вкладка №3. Левая часть (Список преподавателей)-->
+    
                             <StackPanel Margin="10">
                                 <TextBlock Foreground="#FF303030" FontSize="42">
                                     Список 
@@ -255,13 +275,15 @@
                                     преподавателей
                                 </TextBlock>
 
-                                <ListBox Margin="10 5" ItemsSource="{Binding Path=SimpleData.Teachers}" SelectedItem="{Binding Path=Selected.Sel_Teacher, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <ListBox Margin="10 5" ItemsSource="{Binding Path=SimpleData.Teachers_}" SelectedItem="{Binding Path=Selected.Sel_Teacher, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                             </StackPanel>
 
                             <GridSplitter Grid.Column="1" Background="#FF41B1E1" ShowsPreview="False" Width="3"
                                           HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
 
-                            <!--Вкладка №3. Правая часть-->
+                            
+    <!--Вкладка №3. Правая часть-->
+    
                             <StackPanel Margin="10" Grid.Column="2" >
                                 <Expander Header="Изменить данные преподвателя" Margin="10" Padding="10 15">
                                     <Expander.Content>
@@ -293,7 +315,9 @@
                                 <ListBox Margin="10 5" ItemsSource="{Binding Path=SimpleData.Lessons}" 
                                          SelectionMode="Multiple" SelectedItem="{Binding Selected.Sel_Teacher.Lesson}"/>
                                 <WrapPanel>
-                                    <!--Список пар-->
+                                    
+    <!--Список пар-->
+    
                                     <ListBox ItemsSource="{Binding Path=qq.pp}">
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
@@ -325,7 +349,9 @@
                     </TabItem.Content>
                 </TabItem>
 
-                <!--Вкладка №5. Аудитории-->
+                
+    <!--Вкладка №5. Аудитории-->
+    
                 <TabItem Width="60" Style="{StaticResource PressPoint}">
                     <TabItem.Header>
                         <StackPanel>
@@ -341,7 +367,9 @@
                                 <ColumnDefinition Width="3*" MinWidth="215"/>
                             </Grid.ColumnDefinitions>
 
-                            <!--Вкладка №3. Левая часть (Список групп)-->
+                            
+    <!--Вкладка №3. Левая часть (Список групп)-->
+    
                             <StackPanel Margin="10">
                                 <TextBlock Foreground="#FF303030" FontSize="42">
                                     Список 
@@ -360,67 +388,127 @@
 
     </Grid>
 
-
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
             <Controls:Flyout x:Name="FlyoutAdd" 
                              Position="Bottom" Height="500" Theme="Dark">
+
                 <WrapPanel Orientation="Horizontal">
-                    <Expander Header="Предмет" Style="{StaticResource FlyoutsExpandersAdd}">
-                        <StackPanel>
-                            <TextBox Controls:TextBoxHelper.Watermark="Название предмета" Margin="10"/>
-                            <ListBox ItemsSource="{Binding Path=ss}">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="2*"/>
-                                                <ColumnDefinition/>
-                                            </Grid.ColumnDefinitions>
 
-                                            <CheckBox Content="{Binding Key}"/>
-                                        </Grid>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                            <GroupBox Header="Выберите преподавателей" Margin="0 10">
-                                <ListBox ItemsSource="{Binding SimpleData.Teachers}" Margin="3 5" SelectionMode="Multiple"/>
-                            </GroupBox>
-                            <Button Margin="5" Content="Добавить" Background="White" Foreground="#FF035B97"/>
-                        </StackPanel>
-                    </Expander>
-                    <Expander Header="Группу" Style="{StaticResource FlyoutsExpandersAdd}">
-                        <StackPanel>
-                            <TextBox Controls:TextBoxHelper.Watermark="Номер группы" Margin="10"/>
-                            <TextBox Controls:TextBoxHelper.Watermark="Специальность" Margin="10"/>
-                            <Button Margin="5" Content="Добавить" Background="White" Foreground="#FF035B97"/>
-                        </StackPanel>
-                    </Expander>
-                    <Expander Header="Преподавателя" Style="{StaticResource FlyoutsExpandersAdd}">
-                        <StackPanel>
-                            <TextBox Controls:TextBoxHelper.Watermark="Имя" Margin="10"/>
-                            <TextBox Controls:TextBoxHelper.Watermark="Фамилия" Margin="10"/>
-                            <TextBox Controls:TextBoxHelper.Watermark="Отчество" Margin="10"/>
-                            <TextBox Controls:TextBoxHelper.Watermark="Возраст" Margin="10"/>
+                    <TabControl>
+                        <TabItem Header="Предмет">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
 
-                            <GroupBox Header="Выберите предметы" Margin="0 10">
-                                <ListBox ItemsSource="{Binding SimpleData.Lessons}" SelectionMode="Multiple" Margin="3 5"/>
-                            </GroupBox>
-                            <Button Margin="5" Content="Добавить" Background="White" Foreground="#FF035B97"/>
-                        </StackPanel>
-                    </Expander>
-                    <Expander Header="Аудиторию" Style="{StaticResource FlyoutsExpandersAdd}">
-                        <StackPanel>
-                            <TextBox Controls:TextBoxHelper.Watermark="Номер аудитории" Margin="10"/>
-                            <GroupBox Header="Выберите тип аудитории" Margin="0 10">
-                                <!--Привязка к типу аудитории-->
-                                <ListBox ItemsSource="{Binding}" SelectionMode="Multiple" Margin="3 5"/>
-                            </GroupBox>
-                            <Button Margin="5" Content="Добавить" Background="White" Foreground="#FF035B97"/>
-                        </StackPanel>
-                    </Expander>
+                                <StackPanel Grid.Column="0" Grid.Row="0">
+
+                                    <TextBox Controls:TextBoxHelper.Watermark="Название предмета" Margin="10"
+                                         Text="{Binding FlyoutInfo.NewLesson.NewLesson.Name}"/>
+                                    
+                                    <GroupBox Header="Отберите виды занятий" Margin="10 10">
+                                        <ListBox ItemsSource="{Binding Path=SimpleData.TypesLesson}"
+                                         SelectedItem="{Binding FlyoutInfo.NewLesson.Sel_TypeLesson}"/>
+                                    </GroupBox>
+
+                                    <Button Margin="20 10" Content="Отобрать" Command="{Binding Path=Cmd.SendTypeLesson}"
+                                            CommandParameter="{Binding FlyoutInfo.NewLesson.Sel_TypeLesson}"/>
+
+                                    <GroupBox Header="Отобранные" Margin="0 10">
+                                        <ListBox ItemsSource="{Binding Path=FlyoutInfo.NewLesson.CheckedTypesLesson, Mode=TwoWay}" IsEnabled="False"/>
+                                    </GroupBox>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1" Grid.Row="0">
+
+                                    <GroupBox Header="Отберите преподавателей" Margin="10 10">
+                                        <ListBox ItemsSource="{Binding Path=SimpleData.Teachers}"
+                                         SelectedItem="{Binding FlyoutInfo.NewLesson.Sel_Teacher}"/>
+                                    </GroupBox>
+
+                                    <Button Margin="20 10" Content="Отобрать" Command="{Binding Path=Cmd.SendTeacher}"
+                                            CommandParameter="{Binding FlyoutInfo.NewLesson.Sel_Teacher}"/>
+
+                                    <GroupBox Header="Отобранные" Margin="0 10">
+                                        <ListBox ItemsSource="{Binding FlyoutInfo.NewLesson.NewLesson.Teacher}" IsEnabled="False"/>
+                                    </GroupBox>
+                                </StackPanel>
+
+                                <Button Width="150" Grid.Row="1" Grid.ColumnSpan="3" Margin="5" Content="Добавить" Background="White" Foreground="#FF035B97" 
+                                        Command="{Binding Cmd.AddLesson}" CommandParameter=""/>
+
+
+                                <!--<GroupBox Header="Выберите преподавателей" Margin="0 10">
+                                    <ListBox ItemsSource="{Binding SimpleData.Teachers}" Margin="3 5" FontSize="12"/>
+                                </GroupBox>
+                                <Button Height="40" Width="150" Grid.Column="1" Margin="5" Content="Добавить" Background="White" Foreground="#FF035B97" 
+                                        Command="{Binding Cmd.AddLesson}" CommandParameter=""/>-->
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Группу">
+                            <StackPanel>
+                                <TextBox Controls:TextBoxHelper.Watermark="Номер группы" Margin="10"/>
+                                <TextBox Controls:TextBoxHelper.Watermark="Специальность" Margin="10"/>
+                                <Button Margin="5" Content="Добавить" Background="White" Foreground="#FF035B97"/>
+                            </StackPanel>
+                        </TabItem>
+                        <TabItem Header="Преподавателя">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+                            
+                            <StackPanel Grid.Column="0" Grid.Row="0">
+                                <TextBox Controls:TextBoxHelper.Watermark="Имя" Margin="10"/>
+                                <TextBox Controls:TextBoxHelper.Watermark="Фамилия" Margin="10"/>
+                                <TextBox Controls:TextBoxHelper.Watermark="Отчество" Margin="10"/>
+                                <TextBox Controls:TextBoxHelper.Watermark="Возраст" Margin="10"/>
+                            </StackPanel>
+
+                                <GroupBox Grid.Column="1" Header="Какие дисциплины читает?" Margin="0 10">
+                                    <ListBox ItemsSource="{Binding SimpleData.Lessons}" SelectedItem="{Binding FlyoutInfo.NewTeacher.Sel_Lesson, Mode=TwoWay}" Margin="3 5"/>
+                                </GroupBox>
+                                
+                                <Button Grid.Column="2" Margin="10 5" Height="30" Content="В список"
+                                        Command="{Binding FlyoutInfo.NewTeacher.NewTeacher.Lesson}" CommandParameter="{Binding FlyoutInfo.NewTeacher.Sel_Lesson}"/>
+
+                                <GroupBox Grid.Column="3" Header="Отобранные предметы" Margin="0 10">
+                                    <ListBox ItemsSource="{Binding FlyoutInfo.NewTeacher.NewTeacher.Lesson}" IsEnabled="False"/>
+                                </GroupBox>
+                                
+                                <Button Grid.ColumnSpan="4" Grid.Row="1" Margin="5" Content="Добавить" Background="White" Foreground="#FF035B97"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Аудиторию">
+                            <StackPanel>
+                                <TextBox Controls:TextBoxHelper.Watermark="Номер аудитории" Margin="10"/>
+                                <GroupBox Header="Выберите тип аудитории" Margin="0 10">
+                                    <!--Привязка к типу аудитории-->
+                                    <ListBox ItemsSource="{Binding}" SelectionMode="Multiple" Margin="3 5"/>
+                                </GroupBox>
+                                <Button Margin="5" Content="Добавить" Background="White" Foreground="#FF035B97"/>
+                            </StackPanel>
+                        </TabItem>
+                    </TabControl>
+                    
                 </WrapPanel>
             </Controls:Flyout>
+            
             <Controls:Flyout x:Name="FlyoutRemoveChange" 
                              Position="Bottom" Height="500" Theme="Dark">
                 <WrapPanel Orientation="Horizontal">
